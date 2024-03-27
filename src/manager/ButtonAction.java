@@ -1,0 +1,22 @@
+package manager;
+
+public enum ButtonAction {
+	M2_JUMP,
+	M2_RIGHT,
+	M2_LEFT,
+	M2_FIRE,
+	M_JUMP,
+	M_RIGHT,
+	M_LEFT,
+	CROUCH,
+	M_FIRE,
+	START,
+	PAUSE_RESUME,
+	ACTION_COMPLETED,
+	ACTION_COMPLETED2,
+	SELECT,
+	GO_UP,
+	GO_DOWN,
+	GO_TO_START_SCREEN,
+	NO_ACTION
+}
