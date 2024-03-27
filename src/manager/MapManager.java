@@ -19,11 +19,19 @@ import model.prize.Prize;
 import view.ImageLoader;
 
 public class MapManager {
+	private static MapManager instance;
 
 	private Map map;
 
-	public MapManager() {
+	private MapManager() {
 	}
+
+	public static synchronized MapManager getInstance() {
+        if (instance == null) {
+            instance = new MapManager();
+        }
+        return instance;
+    }
 
 	public void updateLocations() {
 		if (map == null)

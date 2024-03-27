@@ -42,9 +42,9 @@ public class GameEngine implements Runnable {
 		// InputManager inputManager = new InputManager(this);
 		gameStatus = GameStatus.START_SCREEN;
 		camera = new Camera();
-		uiManager = new UIManager(this, screenWidth, screenHeight);
-		soundManager = new SoundManager();
-		mapManager = new MapManager();
+		uiManager = UIManager.getInstance(this, screenWidth, screenHeight);
+		soundManager = SoundManager.getInstance();
+		mapManager = MapManager.getInstance();
 
 		JFrame frame = new JFrame("Super Mario Bros.");
 		frame.add(uiManager);

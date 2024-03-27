@@ -7,13 +7,22 @@ import java.io.BufferedInputStream;
 import java.io.InputStream;
 
 public class SoundManager {
+	private static SoundManager instance;
 
 	private Clip background;
 	private long clipTime = 0;
 
-	public SoundManager() {
+	private SoundManager() {
 		background = getClip(loadAudio("background"));
 	}
+
+	public static synchronized SoundManager getInstance() {
+        if (instance == null) {
+            instance = new SoundManager();
+        }
+        return instance;
+    }
+
 
 	private AudioInputStream loadAudio(String url) {
 		try {

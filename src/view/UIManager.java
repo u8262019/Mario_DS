@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class UIManager extends JPanel {
+	private static UIManager instance;
 
 	private GameEngine engine;
 	private Font gameFont;
@@ -20,7 +21,7 @@ public class UIManager extends JPanel {
 	private BufferedImage selectIcon;
 	private MapSelection mapSelection;
 
-	public UIManager(GameEngine engine, int width, int height) {
+	private UIManager(GameEngine engine, int width, int height) {
 		setPreferredSize(new Dimension(width, height));
 		setMaximumSize(new Dimension(width, height));
 		setMinimumSize(new Dimension(width, height));
@@ -48,6 +49,13 @@ public class UIManager extends JPanel {
 			e.printStackTrace();
 		}
 	}
+
+	public static UIManager getInstance(GameEngine engine, int width, int height) {
+        if (instance == null) {
+            instance = new UIManager(engine, width, height);
+        }
+        return instance;
+    }
 
 	@Override
 	public void paintComponent(Graphics g) {
