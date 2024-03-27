@@ -40,8 +40,8 @@ public class GameEngine implements Runnable {
 
 		imageLoader = new ImageLoader();
 		// InputManager inputManager = new InputManager(this);
-		gameStatus = GameStatus.START_SCREEN;
-		camera = new Camera();
+		gameStatus = GameStatus.getInstance();
+		camera = Camera.getInstance();
 		uiManager = UIManager.getInstance(this, screenWidth, screenHeight);
 		soundManager = SoundManager.getInstance();
 		mapManager = MapManager.getInstance();
@@ -78,7 +78,7 @@ public class GameEngine implements Runnable {
 	}
 
 	public void resetCamera() {
-		camera = new Camera();
+		camera = Camera.getInstance();
 		soundManager.restartBackground();
 	}
 

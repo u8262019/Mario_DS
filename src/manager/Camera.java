@@ -2,39 +2,48 @@ package manager;
 
 public class Camera {
 
-	private double x, y;
-	private int frameNumber;
-	private boolean shaking;
+    private double x, y;
+    private int frameNumber;
+    private boolean shaking;
 
-	public Camera() {
-		this.x = 0;
-		this.y = 0;
-		this.frameNumber = 30;
-		this.shaking = false;
-	}
+    private static Camera instance;
 
-	public double getX() {
-		return x;
-	}
+    private Camera() {
+        this.x = 0;
+        this.y = 0;
+        this.frameNumber = 30;
+        this.shaking = false;
+    }
 
-	public void setX(double x) {
-		this.x = x;
-	}
+    public static Camera getInstance() {
+        if (instance == null) {
+            instance = new Camera();
+        }
+        return instance;
+    }
 
-	public double getY() {
-		return y;
-	}
+    public double getX() {
+        return x;
+    }
 
-	public void setY(double y) {
-		this.y = y;
-	}
+    public void setX(double x) {
+        this.x = x;
+    }
 
-	public void shakeCamera() {
-		// shaking = true;
-		// frameNumber = 60;
-	}
+    public double getY() {
+        return y;
+    }
 
-	public void moveCam(double xAmount) {
-		x = x + xAmount;
-	}
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void shakeCamera() {
+        // shaking = true;
+        // frameNumber = 60;
+    }
+
+    public void moveCam(double xAmount) {
+        x = x + xAmount;
+    }
 }
